@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5AC3ADFB-8120-4776-BC60-4EB767DF8690}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GeneralKiosk</RootNamespace>
+    <AssemblyName>GeneralKiosk</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>RasisLogo16.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiLibrary.Resources, Version=1.9.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\FarsiLibrary.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiLibrary.Utils, Version=2.5.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\FarsiLibrary.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiLibrary.Win, Version=1.9.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\FarsiLibrary.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiMessageBox">
+      <HintPath>Dll\FarsiMessageBox.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport, Version=2022.3.4.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=2022.3.4.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Compat">
+      <HintPath>Dll\FastReport.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.DataVisualization">
+      <HintPath>Dll\FastReport.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Editor, Version=2022.3.4.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\FastReport.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.2.10, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>packages\SharpZipLib.1.3.2\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>Dll\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Data.v4, Version=4.0.52.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\source\Hakemiat7\SabtAsnad\SampleAllTypes\PayWith-SEP-EveryWhere\bin\x86\Debug\Janus.Data.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.ButtonBar.v4, Version=4.0.52.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\source\Hakemiat7\SabtAsnad\SampleAllTypes\PayWith-SEP-EveryWhere\bin\x86\Debug\Janus.Windows.ButtonBar.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.CalendarCombo.v4, Version=4.0.52.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\source\Hakemiat7\SabtAsnad\SampleAllTypes\PayWith-SEP-EveryWhere\bin\x86\Debug\Janus.Windows.CalendarCombo.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Common.v4, Version=4.0.52.0, Culture=neutral, PublicKeyToken=21d5517571b185bf" />
+    <Reference Include="Janus.Windows.GridEX.v4, Version=4.0.52.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.GridEX.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Ribbon.v4, Version=4.0.52.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL" />
+    <Reference Include="Janus.Windows.UI.v4, Version=4.0.52.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL" />
+    <Reference Include="MakeRasisToken">
+      <HintPath>Dll\MakeRasisToken.dll</HintPath>
+    </Reference>
+    <Reference Include="MultiBoxViewDll">
+      <HintPath>Dll\MultiBoxViewDll.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Nancy.2.0.0\lib\net452\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="NCI.Windows.Controls">
+      <HintPath>E:\source\Tardod\Taradod\SarzaminShadi\SarzaminShadi\Dll\NCI.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.5.5\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.5.5\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.5.5\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.5.5\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="ReadRasisToken">
+      <HintPath>Dll\ReadRasisToken.dll</HintPath>
+    </Reference>
+    <Reference Include="Sep.Logger, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Sep.Logger.dll</HintPath>
+    </Reference>
+    <Reference Include="SepPaySCG, Version=1.7.11.29103, Culture=neutral, PublicKeyToken=4673c91a557605f2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\TaxApiServicesExe\TaxApiServicesExe\DLL\SepPaySCG.dll</HintPath>
+    </Reference>
+    <Reference Include="SSP1126.PcPos, Version=1.4.8.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\SSP1126.PcPos.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\BaseInformation.cs" />
+    <Compile Include="Class\ClassDetail.cs" />
+    <Compile Include="Class\CRC32.cs" />
+    <Compile Include="Class\Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\Date.designer.cs">
+      <DependentUpon>Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\GhanunFarmaSendPayInfo\Resualt.cs" />
+    <Compile Include="Class\GhanunFarmaSendPayInfo\data.cs" />
+    <Compile Include="Class\GhanunFarmaSendPayInfo\SendPayInfo.cs" />
+    <Compile Include="Class\GhanunFarmaSendPayInfo\items.cs" />
+    <Compile Include="Class\GhanunFarmaSendPayInfo\payment.cs" />
+    <Compile Include="Class\GhanunFarmaGetPayInfo\data.cs" />
+    <Compile Include="Class\GhanunFarmaGetPayInfo\GetBarCodePayInfo.cs" />
+    <Compile Include="Class\GhanunFarma\bankAccounts.cs" />
+    <Compile Include="Class\DelayTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Class\DelayTextBox.Designer.cs">
+      <DependentUpon>DelayTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Enumeration.cs" />
+    <Compile Include="Class\GhanunFarma\data.cs" />
+    <Compile Include="Class\GhanunFarma\GetSettings.cs" />
+    <Compile Include="Class\GetTCDYBCWEBSR_Result.cs" />
+    <Compile Include="Class\GhanunFarma\tags.cs" />
+    <Compile Include="Class\GhanunFarma\warehouses.cs" />
+    <Compile Include="Class\Ini.cs" />
+    <Compile Include="Class\GhanunFarma\partners.cs" />
+    <Compile Include="Class\GhanunFarma\poses.cs" />
+    <Compile Include="Class\LicenseManagementApi.cs" />
+    <Compile Include="Class\PatientControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\RegisterTypyrViewModel.cs" />
+    <Compile Include="Class\Shared.cs" />
+    <Compile Include="Class\TPYR.cs" />
+    <Compile Include="Class\UcMenuCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\UcMenuCheck.Designer.cs">
+      <DependentUpon>UcMenuCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CustomOkMsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\CustomOkMsgBox.Designer.cs">
+      <DependentUpon>CustomOkMsgBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FormHiddenPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\FormHiddenPay.Designer.cs">
+      <DependentUpon>FormHiddenPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FormWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\FormWaiting.Designer.cs">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FrmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\FrmBackup.Designer.cs">
+      <DependentUpon>FrmBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\frmMakeNewConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\frmMakeNewConnection.Designer.cs">
+      <DependentUpon>frmMakeNewConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\frmSerialActiveCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\frmSerialActiveCode.Designer.cs">
+      <DependentUpon>frmSerialActiveCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\NumericKeyboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\NumericKeyboardForm.Designer.cs">
+      <DependentUpon>NumericKeyboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\prompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\prompt.Designer.cs">
+      <DependentUpon>prompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FormFactorsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FormFactorsList.Designer.cs">
+      <DependentUpon>FormFactorsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm\FormpatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm\FormpatientInfo.Designer.cs">
+      <DependentUpon>FormpatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm\FormpatientsMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm\FormpatientsMenu.Designer.cs">
+      <DependentUpon>FormpatientsMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm\FormStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm\FormStart.Designer.cs">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm\FormPayWithCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm\FormPayWithCard.Designer.cs">
+      <DependentUpon>FormPayWithCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm\Formpatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm\Formpatients.Designer.cs">
+      <DependentUpon>Formpatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSchedule\FrmScheduleAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobSchedule\FrmScheduleAddEdit.Designer.cs">
+      <DependentUpon>FrmScheduleAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSchedule\FrmScheduleList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobSchedule\FrmScheduleList.Designer.cs">
+      <DependentUpon>FrmScheduleList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FormPayFormSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FormPayFormSetting.Designer.cs">
+      <DependentUpon>FormPayFormSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FormMainSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FormMainSetting.Designer.cs">
+      <DependentUpon>FormMainSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FormInsertCustSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FormInsertCustSetting.Designer.cs">
+      <DependentUpon>FormInsertCustSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setting\frmPosSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\frmPosSetting.Designer.cs">
+      <DependentUpon>frmPosSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template\FrmTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template\FrmTemplate.Designer.cs">
+      <DependentUpon>FrmTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template\FrmTemplateAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template\frmTemplateAddEdit.Designer.cs">
+      <DependentUpon>FrmTemplateAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template\FrmTemplateList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template\frmTemplateList.Designer.cs">
+      <DependentUpon>FrmTemplateList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Template\FrmTemplateOKCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Template\FrmTemplateOKCancel.Designer.cs">
+      <DependentUpon>FrmTemplateOKCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlItemsButtonMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlItemsButtonMenu.Designer.cs">
+      <DependentUpon>UserControlItemsButtonMenu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Class\Date.resx">
+      <DependentUpon>Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\UcMenuCheck.resx">
+      <DependentUpon>UcMenuCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\CustomOkMsgBox.resx">
+      <DependentUpon>CustomOkMsgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\FormHiddenPay.resx">
+      <DependentUpon>FormHiddenPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\FormWaiting.resx">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\FrmBackup.resx">
+      <DependentUpon>FrmBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\frmMakeNewConnection.resx">
+      <DependentUpon>frmMakeNewConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\frmSerialActiveCode.resx">
+      <DependentUpon>frmSerialActiveCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\NumericKeyboardForm.resx">
+      <DependentUpon>NumericKeyboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\prompt.resx">
+      <DependentUpon>prompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormFactorsList.resx">
+      <DependentUpon>FormFactorsList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm\FormpatientInfo.resx">
+      <DependentUpon>FormpatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm\FormpatientsMenu.resx">
+      <DependentUpon>FormpatientsMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm\FormStart.resx">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm\FormPayWithCard.resx">
+      <DependentUpon>FormPayWithCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm\Formpatients.resx">
+      <DependentUpon>Formpatients.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSchedule\FrmScheduleAddEdit.resx">
+      <DependentUpon>FrmScheduleAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSchedule\FrmScheduleList.resx">
+      <DependentUpon>FrmScheduleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FormPayFormSetting.resx">
+      <DependentUpon>FormPayFormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FormMainSetting.resx">
+      <DependentUpon>FormMainSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FormInsertCustSetting.resx">
+      <DependentUpon>FormInsertCustSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\frmPosSetting.resx">
+      <DependentUpon>frmPosSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template\FrmTemplate.resx">
+      <DependentUpon>FrmTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template\FrmTemplateAddEdit.resx">
+      <DependentUpon>FrmTemplateAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template\FrmTemplateList.resx">
+      <DependentUpon>FrmTemplateList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template\FrmTemplateOKCancel.resx">
+      <DependentUpon>FrmTemplateOKCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlItemsButtonMenu.resx">
+      <DependentUpon>UserControlItemsButtonMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-1-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-7-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-7-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\49-494368_setting-clipart-logo-png-setting-icon-in-android.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65-654632_setting-icon-clipart-png-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting-icon-png-8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KalaInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-view-more-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-about-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-exit-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RASISPNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RasisLogo16.ico" />
+    <None Include="Resources\icons8-backspace-50.png" />
+    <None Include="Resources\icons8-clear-48 %281%29.png" />
+    <None Include="Resources\icons8-clear-48.png" />
+    <None Include="Resources\icons8-backup-100.png" />
+    <None Include="Resources\icons8-backup-100 %281%29.png" />
+    <None Include="Resources\ERR.png" />
+    <None Include="Resources\icons8-backup-64.png" />
+    <None Include="Resources\delete1.ico" />
+    <None Include="Resources\Edit3.png" />
+    <None Include="Resources\Add.ico" />
+    <None Include="Resources\RasisBackup.png" />
+    <None Include="Resources\RasisBackgroundBackup.png" />
+    <None Include="Resources\Loading gif.gif" />
+    <None Include="Resources\icons8-clear-32.png" />
+    <None Include="Resources\icons8-clear-50.png" />
+    <None Include="Resources\icons8-clear-64.png" />
+    <None Include="Resources\icons8-search-80.png" />
+    <None Include="Resources\Union4342.png" />
+    <None Include="Resources\Union111.png" />
+    <None Include="Resources\Rectangle 234234.png" />
+    <None Include="Resources\Group 24444.png" />
+    <None Include="Resources\Group22.png" />
+    <None Include="Resources\Group 6.png" />
+    <None Include="Resources\Rec-Half-Right %282%29.png" />
+    <None Include="Resources\Rectangle-Half.png" />
+    <None Include="Resources\RectangleHalf-Right.png" />
+    <None Include="Resources\Rectangle 20.png" />
+    <None Include="Resources\Group 5.png" />
+    <None Include="Resources\Button.png" />
+    <None Include="Resources\Group 2.png" />
+    <None Include="Resources\Rectangle 9.png" />
+    <None Include="Resources\7611a78982cbed109cd23e3419b630da.gif" />
+    <None Include="Resources\icons8-upload-64.png" />
+    <None Include="Resources\R1.png" />
+    <None Include="Resources\refresh-square-icon-2048x2048-8977l1ow.png" />
+    <None Include="Resources\arrow-down.png" />
+    <None Include="Resources\Hospital-unscreen.gif" />
+    <None Include="Resources\img_20230919%281%29.png" />
+    <None Include="Resources\img_20230919.png" />
+    <None Include="Resources\Group 1.png" />
+    <None Include="Resources\582-5826409_table-of-contents-cartoon-hd-png-download.png" />
+    <None Include="Resources\750-7505462_report-icon-plan-vector-png-transparent-png.png" />
+    <None Include="Resources\320-3204769_reports-icon-png-transparent-png.png" />
+    <None Include="Resources\pngtree-reports-icon-for-your-project-png-image_4821084.jpg" />
+    <None Include="Resources\kisspng-hospital-clip-art-hospital-cartoon-5b368e1af06946.7831441015303019789847.jpg" />
+    <None Include="Resources\L_O_G_O-new_color-01-removebg-preview.png" />
+    <None Include="Resources\logo-mohebe-mehr.png" />
+    <None Include="Resources\Rectangle 4.png" />
+    <None Include="Resources\Union.png" />
+    <None Include="Resources\Rectangle 5.png" />
+    <None Include="Resources\R.png" />
+    <None Include="Resources\icons8-cancel-480.png" />
+    <None Include="Resources\icons8-cancel-48.png" />
+    <None Include="Resources\png-transparent-red-circle-printer-error-return-code-error-message-computer-computer-software-file-dialog.png" />
+    <None Include="Resources\Hopstarter-Soft-Scraps-My-Pictures.ico" />
+    <None Include="Resources\5-1.jpg" />
+    <None Include="Resources\Print.jpg" />
+    <None Include="Resources\question_icon5940.png" />
+    <None Include="Resources\Bot-rasis.jpg" />
+    <None Include="Resources\info.ico" />
+    <None Include="Resources\Pos1.ico" />
+    <None Include="Resources\3-message.jpg" />
+    <None Include="Resources\2-1.jpg" />
+    <None Include="Resources\8-1.png" />
+    <None Include="Resources\preloader.gif" />
+    <None Include="Resources\bar-preloader.gif" />
+    <None Include="Resources\sabt movafagh-png.png" />
+    <None Include="Resources\sabt-namovafagh-png.png" />
+    <None Include="Resources\1577516586loading.gif" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\WarningPic.png" />
+    <None Include="Resources\sabt-namovafagh-icon.jpg" />
+    <None Include="Resources\sabt movafagh-icon.jpg" />
+    <None Include="Resources\message-btn.jpg" />
+    <None Include="Resources\SuccessFulMsg.png" />
+    <None Include="Resources\warning-icon-png-4.jpg" />
+    <None Include="Resources\0-6556_attention-clipart-attention-clipart.png" />
+    <None Include="Resources\icon_alert_2.png" />
+    <None Include="Resources\26853.png" />
+    <None Include="Resources\55-559106_clipart-website-buttons-oval-button-png.png" />
+    <None Include="Resources\Untitled-_white.png" />
+    <None Include="Resources\Untitled-1_2.png" />
+    <None Include="Resources\icons8-info-60.png" />
+    <None Include="Resources\icons8-tooth-gear-setting-logo-in-computer-operating-system-60 %281%29.png" />
+    <None Include="Resources\icons8-exit-60 _blue.png" />
+    <None Include="Resources\icons8-about_blue.png" />
+    <None Include="Resources\button1.png" />
+    <None Include="Resources\icons8-back-arrow-100 %281%29.png" />
+    <None Include="Resources\icons8-return-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
